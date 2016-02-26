@@ -55,3 +55,6 @@ RUN cd "/tmp" && \
            "$JAVA_HOME/jre/lib/oblique-fonts" && \
     rm "/tmp/"*
 
+#get sbt		
+RUN curl -s https://raw.githubusercontent.com/paulp/sbt-extras/master/sbt > /usr/local/bin/sbt \		
+   && chmod 0755 /usr/local/bin/sbt && sbt -sbt-create
