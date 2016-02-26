@@ -4,8 +4,13 @@ build:
      - wget -qO- https://get.docker.com/ | sh
      - /bin/bash /srv/project/build
      - cd /kafka-rest-server-master && docker build -t zavalit/kafka-rest-server .
-     - "export DOCKER_HOST=unix:///var/run/host.sock"
-     - docker login -u "$$DOCKER_USER" -p "$$DOCKER_PSW" -e "$$DOCKER_EMAIL"
-     - docker push zavalit/kafka-rest-server
-  volumes:
-    - /var/run/docker.sock:/tmp/host.sock:rw
+
+publish:
+  docker:
+    username: $$DOCKER_USER
+    password: $$DOCKER_PSW
+    email: $$DOCKER_EMAIL
+    repo: zavalit/kafka-rest-server
+    when:
+      repo: zavalit/kafka-rest-server
+      branch: master
