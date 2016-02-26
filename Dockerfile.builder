@@ -60,4 +60,3 @@ RUN curl -s https://raw.githubusercontent.com/paulp/sbt-extras/master/sbt > /usr
    && chmod 0755 /usr/local/bin/sbt && sbt -sbt-create
 
 ENV DOCKER_VER 1.10.2
-RUN wget -qO- https://get.docker.com/ | sed 's/lxc-docker/lxc-docker-$DOCKER_VER/' | sh
