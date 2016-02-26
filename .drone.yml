@@ -1,0 +1,8 @@
+build:
+  image: zavalit/kafka-rest-server-builder
+  commands: 
+     - ./build
+     - cd /kafka-rest-server-master && docker build -t zavalit/kafka-rest-server .
+     - docker push zavalit/kafka-rest-server
+  volumes:
+    - /var/run/docker.sock:/tmp/host.sock:rw

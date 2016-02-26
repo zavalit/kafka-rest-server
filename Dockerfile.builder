@@ -59,5 +59,7 @@ WORKDIR /srv/project
 #get sbt
 RUN curl -s https://raw.githubusercontent.com/paulp/sbt-extras/master/sbt > /usr/local/bin/sbt \
   && chmod 0755 /usr/local/bin/sbt && sbt -sbt-create
-ADD https://github.com/zavalit/kafka-rest-server/archive/master.tar.gz .
-RUN tar -zxvf master.tar.gz && cd kafka-rest-server-master && sbt assembly
+RUN echo "curl -L -o master.tar.gz https://github.com/zavalit/kafka-rest-server/archive/master.tar.gz  && \
+tar -zxvf master.tar.gz && \
+cd kafka-rest-server-master && \
+sbt assembly" > build && chmod +x build
