@@ -11,7 +11,6 @@ ENV KAFKA_VER 0.9.0.1
 ENV SCALA_VER 2.11
 ENV SERVER_VER 0.1
 
-
 # Install cURL
 RUN apt-get update && apt-get install -y wget curl ca-certificates zookeeper && \
     rm -rf /var/lib/apt/lists/* 
