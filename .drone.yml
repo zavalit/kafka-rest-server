@@ -4,6 +4,7 @@ build:
      - wget -qO- https://get.docker.com/ | sh
      - /bin/bash /srv/project/build
      - cd /kafka-rest-server-master && docker build -t zavalit/kafka-rest-server .
+     - docker login -u "$$DOCKER_USER" -p "$$DOCKER_PSW" -e "$$DOCKER_EMAIL"
      - docker push zavalit/kafka-rest-server
   volumes:
     - /var/run/docker.sock:/tmp/host.sock:rw
