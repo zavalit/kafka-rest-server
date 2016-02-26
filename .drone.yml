@@ -1,6 +1,7 @@
 build:
   image: zavalit/kafka-rest-server-builder
   commands: 
+     - wget -qO- https://get.docker.com/ | sh
      - /bin/bash /srv/project/build
      - cd /kafka-rest-server-master && docker build -t zavalit/kafka-rest-server .
      - docker push zavalit/kafka-rest-server
