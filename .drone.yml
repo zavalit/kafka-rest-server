@@ -3,6 +3,7 @@ build:
   pull: true
   commands: 
      - sbt assembly
+     - wget -qO- https://get.docker.com/ | sh
      - docker build -t zavalit/kafka-rest-server .
 
 publish:
