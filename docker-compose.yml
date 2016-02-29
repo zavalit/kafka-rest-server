@@ -1,0 +1,4 @@
+kafka_rest_server:
+  image: zavalit/kafka-rest-server
+  ports:
+    - "8080:8080"
