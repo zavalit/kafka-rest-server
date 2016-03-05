@@ -2,6 +2,9 @@
 KAFKA=$KAFKA_HOME
 
 
+#set advertised host address
+sed  's#{{[[ ]*vm.ip[ ]*}}#'"$VM_IP"'#g' $KAFKA/config/server.properties.j2 > $KAFKA/config/server.properties
+
 #start kafka
 mkdir $KAFKA/logs
 $KAFKA/bin/zookeeper-server-start.sh $KAFKA/config/zookeeper.properties > $KAFKA/logs/zookeeper.log 2>&1 &
@@ -9,5 +12,3 @@ $KAFKA/bin/kafka-server-start.sh $KAFKA/config/server.properties > $KAFKA/logs/k
 
 #start server
 $JAVA_HOME/bin/java -jar /root/kafka-rest-server-assembly-$SERVER_VER.jar
-
-

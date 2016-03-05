@@ -1,6 +1,6 @@
 FROM ubuntu:14.04
 
-ENV LAST-UPDATE 26.02.2016
+ENV LAST-UPDATE 04.03.2016
 MAINTAINER Seva Dolgopolov
 
 ENV JAVA_VERSION_MAJOR 8
@@ -35,4 +35,6 @@ ADD kafka-start /usr/local/bin/kafka-start
 ADD target/scala-$SCALA_VER/kafka-rest-server-assembly-$SERVER_VER.jar /root/
 RUN chmod +x /usr/local/bin/kafka-start
 
-CMD kafka-start --with-server 
+ADD config/server.properties.j2 $KAFKA_HOME/config/
+
+CMD kafka-start

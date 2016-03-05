@@ -21,3 +21,6 @@ project/plugins/project/
 
 #drone secrets
 secrets.yml
+
+#config
+config/server.properties

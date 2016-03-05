@@ -102,7 +102,7 @@ trait TopicProducer extends Protocol {
     props.put("key.serializer", "org.apache.kafka.common.serialization.IntegerSerializer")
     props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer")
 
-    val topic = s"test-topic"
+    val topic = s"test"
 
     val now  = java.util.Calendar.getInstance().getTime()
     val producer = new KafkaProducer[Integer, String](props)
