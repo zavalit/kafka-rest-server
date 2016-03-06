@@ -3,7 +3,7 @@ kafka_rest_server:
   environment:
     - VM_IP=$VM_IP 
   ports:
-    - "8080:8080"
+    - "8000:8080"
     - "2181:2181"
     - "9092:9092"
   command: kafka-start
